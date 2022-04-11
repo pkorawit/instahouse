@@ -11,7 +11,7 @@
         <h3>Select a photo</h3>
       </v-col>
       <v-col cols="12" align="center">
-        <v-img :src="photoUrl" @click="selectPhoto"> </v-img>
+        <v-img width="350px" :src="photoUrl" @click="selectPhoto"> </v-img>
       </v-col>
       <v-col cols="12" class="mt-5">
         <v-text-field
@@ -44,8 +44,11 @@
           outlined
         ></v-text-field>
       </v-col>
-      <v-col align="center">
+      <v-col cols="12" align="center">
         <v-btn rounded large color="primary" @click="savePost">Save</v-btn>
+      </v-col>
+       <v-col cols="12" align="center">
+         
       </v-col>
     </v-row>
     <v-overlay :value="overlay">
