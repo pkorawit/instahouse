@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth';
+import './registerServiceWorker'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDIgexMZQmfqh2YGcEd_1dvqwpvY2xiYwM",
