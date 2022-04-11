@@ -5,8 +5,7 @@
         <v-container align="center" align-self="center" pa-10>
           <v-row>
             <v-col>
-              <v-img src="@/assets/house.png" contain max-height="150">
-              </v-img>
+              <v-img src="@/assets/house.png" contain max-height="150"> </v-img>
             </v-col>
           </v-row>
           <v-row class="mb-5">
@@ -39,7 +38,9 @@
           </v-row>
           <v-row>
             <v-col align="center">
-              <v-btn rounded large color="primary" @click="signInWithPassword">Sign In with Password</v-btn>
+              <v-btn rounded large color="primary" @click="signInWithPassword"
+                >Sign In with Password</v-btn
+              >
             </v-col>
           </v-row>
         </v-container>
@@ -56,10 +57,35 @@
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      email: "demo@instahouse.com",
+      password: "demo123",
+      gotError: false,
+      errorMessage: "",
+    };
+  },
+  methods: {
+    signInWithPassword() {
+      // Sign In with Firebase Authentication
+      this.$firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((userCredential) => {
+          // Signed in
+          console.log(userCredential);
+          this.$router.replace("/")
+        })
+        .catch((error) => {
+          const errorCode = error.code
+          const errorMessage = error.message
+          this.errorMessage = `${errorCode} - ${errorMessage}`
+          this.gotError = true
+        });
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
