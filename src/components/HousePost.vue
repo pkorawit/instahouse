@@ -17,8 +17,8 @@
     <v-card-subtitle>
       {{subtitle}}
     </v-card-subtitle>
-    <v-card-subtitle>
-      {{price}}
+    <v-card-subtitle >
+      <h3><v-icon color="primary">mdi-currency-usd</v-icon>{{price.toLocaleString()}}</h3>
     </v-card-subtitle>
   </v-card>
 </template>
