@@ -9,7 +9,7 @@
         <v-spacer></v-spacer>
         <v-menu left bottom>
           <template v-slot:activator="{ attrs }">
-            <v-btn icon v-bind="attrs">
+            <v-btn @click="signOut" icon v-bind="attrs">
               <v-icon>mdi-logout-variant</v-icon>
             </v-btn>
           </template>
@@ -53,12 +53,26 @@
 
 <script>
 export default {
-name: 'MainLyoutView',  
+  name: "MainLyoutView",
   data() {
     return {
       value: 1,
       active: true,
     };
+  },
+  methods: {
+    signOut() {
+      this.$firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          // Sign-out successful.
+          this.$router.replace('/signin')
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
