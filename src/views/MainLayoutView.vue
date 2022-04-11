@@ -19,6 +19,22 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    <v-fab-transition>
+      <v-btn
+        v-show="true"
+        color="pink mb-14"
+        to="/addnew"
+        fab
+        dark
+        small
+        fixed
+        right
+        bottom
+      >
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </v-fab-transition>
+
     <v-bottom-navigation
       v-model="value"
       :input-value="active"
@@ -67,7 +83,7 @@ export default {
         .signOut()
         .then(() => {
           // Sign-out successful.
-          this.$router.replace('/signin')
+          this.$router.replace("/signin");
         })
         .catch((error) => {
           console.log(error);
